@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors - Ultimate</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <button id="open-game" class="pulse">Play</button>
+        <p class="credits">by W.A.H. Nirmal</p>
+    </div>
+
+    <!-- Name Input Modal -->
+    <div id="name-modal" class="modal">
+        <div class="modal-content">
+            <h2 class="name-modal-title">Enter Your Name</h2>
+            <input type="text" id="player-name-input" placeholder="Player Name" class="name-input" required>
+            <button id="start-game" class="start-button">Start Game</button>
+            <p class="modal-credits">by W.A.H. Nirmal</p>
+        </div>
+    </div>
+
+    <!-- Game Modal -->
+    <div id="game-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <h1 class="game-title">Rock Paper Scissors <span class="pro-badge">Nirmal</span></h1>
+
+            <div class="choices">
+                <button id="rock" class="choice-button choice-rock" aria-label="Rock">
+                    <img src="rock.png" alt="Rock" class="choice-image">
+                </button>
+                <button id="paper" class="choice-button choice-paper" aria-label="Paper">
+                    <img src="paper.png" alt="Paper" class="choice-image">
+                </button>
+                <button id="scissors" class="choice-button choice-scissors" aria-label="Scissors">
+                    <img src="scissors.png" alt="Scissors" class="choice-image">
+                </button>
+            </div>
+
+            <div class="results">
+                <div class="player-choice result-box">
+                    <h2>You</h2>
+                    <div class="image-container">
+                        <img id="player-display" src="placeholder.png" alt="Player Choice" class="result-image">
+                    </div>
+                </div>
+                <div class="computer-choice result-box">
+                    <h2>Nirmal</h2>
+                    <div class="image-container">
+                        <img id="computer-display" src="placeholder.png" alt="Computer Choice" class="result-image">
+                    </div>
+                </div>
+                <div class="result-text result-box">
+                    <p id="result">Choose your weapon!</p>
+                </div>
+            </div>
+
+            <div class="score-container">
+                <div class="score">
+                    <p><span id="player-name-display">Player</span>: <span id="player-score">0</span></p>
+                    <p>Nirmal: <span id="computer-score">0</span></p>
+                </div>
+                <div class="buttons">
+                    <button id="reset-game" class="reset-button">Reset</button>
+                    <button id="toggle-sound" class="sound-button">Sound: <span id="sound-status">On</span></button>
+                </div>
+                <div class="streak">
+                    <p>Streak: <span id="current-streak">0</span></p>
+                    <p>Best: <span id="best-streak">0</span></p>
+                </div>
+            </div>
+            <p class="modal-credits">by W.A.H. Nirmal</p>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="click-sound" preload="auto" src="mixkit-game-click-1114.wav"></audio>
+    <audio id="win-sound" preload="auto" src="mixkit-video-game-win-2016.wav"></audio>
+    <audio id="lose-sound" preload="auto" src="mixkit-retro-arcade-game-over-470.wav"></audio>
+    <audio id="tie-sound" preload="auto" src="mixkit-click-error-1110.wav"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

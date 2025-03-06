@@ -1,0 +1,469 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a, #333);
+    color: #fff;
+    margin: 0;
+    width: 100%; /* Use full width */
+}
+
+.container {
+    text-align: center;
+    width: 100%;  /* Use full available width */
+    padding: 1rem; /* Add some padding */
+    box-sizing: border-box; /* Include padding in width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Button Styles */
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-family: inherit;
+}
+
+#open-game {
+    padding: 1rem 2rem; /* Adjust padding */
+    font-size: 1.2em;  /* Adjust font size */
+    background-color: #6200ea;
+    color: white;
+    border-radius: 0.5rem; /* Adjust border radius */
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+#open-game:hover {
+    background-color: #4a00b3;
+    transform: scale(1.1);
+    box-shadow: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.5);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.4s;
+    overflow-y: auto; /* Add scrollbar to modal */
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #2c2c2c, #444);
+    padding: 2rem;  /* Adjust padding */
+    border: 0.1875rem solid #555;
+    width: 90%;  /* Adjust width */
+    max-width: 600px; /* Adjust max-width */
+    border-radius: 1rem; /* Adjust border radius */
+    box-shadow: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.5);
+    margin: 2rem auto; /* Center horizontally and add margin */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.close-button {
+    color: #aaa;
+    font-size: 2rem;  /* Adjust font size */
+    font-weight: bold;
+    position: absolute;
+    top: 1rem;  /* Adjust position */
+    right: 1.5rem; /* Adjust position */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-button:hover {
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+/* Game Title */
+.game-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+     font-size: 2rem; /* Adjust font size */
+    font-family: 'Bangers', cursive;
+    letter-spacing: 0.1em;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
+}
+
+.pro-badge {
+    font-size: 0.6em;
+    vertical-align: super;
+    background-color: #ffd700;
+    color: #333;
+     padding: 0.2rem 0.4rem; /* Adjust padding */
+    border-radius: 0.3rem; /* Adjust border radius */
+    margin-left: 0.3rem; /* Adjust margin */
+}
+
+
+/* Choices Section */
+.choices {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1.5rem; /* Adjust margin */
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.choice-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
+    padding: 0.8rem; /* Adjust padding */
+    border-radius: 50%;
+    margin: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem; /* Adjust size */
+    height: 5rem; /* Adjust size */
+    box-shadow: 0 0.1875rem 0.625rem rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.choice-button:hover {
+    border-color: #6200ea;
+    transform: scale(1.1);
+    box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.4);
+}
+
+.choice-image {
+    width: 3.5rem;  /* Adjust size */
+    height: 3.5rem; /* Adjust size */
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.choice-button:hover .choice-image {
+    transform: rotate(360deg);
+}
+
+/* Results Section */
+.results {
+    display: flex;
+    justify-content: space-around;
+     margin-bottom: 1rem; /* Adjust margin */
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0;
+}
+
+.result-box {
+    padding: 1rem;
+    border-radius: 0.9375rem;
+    text-align: center;
+    margin: 0.5rem;
+    box-sizing: border-box;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.3);
+    flex: 1 1 calc(50% - 1rem); /* Two columns on larger screens */
+    max-width: calc(50% - 1rem);  /* Two columns */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result-header {
+    font-size: 1em;
+    margin-bottom: 0.5rem;
+    color: #eee;
+}
+
+.image-container {
+     height: 3.5rem;  /* Adjust height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.6s ease;
+}
+
+.result-image {
+     width: 3rem; /* Adjust size */
+    height: 3rem; /* Adjust size */
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.result-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
+
+}
+.result-box h2 {
+    margin-bottom: 0.5rem;
+     font-size: 1.1em;  /* Adjust font size */
+    color: #eee;
+}
+
+#result {
+   font-size: 1em;  /* Adjust font size */
+    font-weight: bold;
+    margin: 0;
+    color: #ffd700;
+    text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease, color 0.5s ease;
+}
+
+#result.win {
+    color: #4CAF50;
+    transform: scale(1.2);
+}
+
+#result.lose {
+    color: #f44336;
+    transform: scale(0.9);
+}
+
+#result.tie {
+    color: #2196F3;
+}
+
+/* Score Container */
+.score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: auto;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.score {
+    display: flex;
+    justify-content: space-around;
+     font-size: 0.9em; /* Adjust font size */
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.reset-button,
+.sound-button {
+    padding: 0.5rem 1rem;  /* Adjust padding */
+    font-size: 0.9em; /* Adjust font size */
+    color: white;
+    border: none;
+    border-radius: 0.5rem; /* Adjust border radius */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.reset-button {
+    background-color: #f44336;
+}
+
+.reset-button:hover {
+    background-color: #d32f2f;
+    transform: rotate(360deg);
+}
+
+.sound-button {
+    background-color: #2196f3;
+}
+
+.sound-button:hover {
+    background-color: #0b7dda;
+    transform: scale(1.1);
+}
+
+.streak {
+    text-align: center;
+     font-size: 0.8em; /* Adjust font size */
+    color: #ccc;
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Credits */
+.credits,
+.modal-credits {
+     font-size: 0.6em; /* Adjust font size */
+    color: #888;
+    margin-top: 0.625rem;
+    position: relative;
+    z-index: 1;
+}
+
+.modal-credits {
+    text-align: center;
+     margin-top: auto;
+}
+
+/* --- ANIMATIONS --- */
+
+/* Modal Opening */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+    from { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* Pulsing Animation (for Play button) */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(98, 0, 234, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 0.9375rem rgba(98, 0, 234, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(98, 0, 234, 0);
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Result Image Animations */
+@keyframes win-bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-1.5rem) scale(1.2); }
+  60% { transform: translateY(-0.75rem) scale(1.1); }
+}
+
+@keyframes lose-shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-0.625rem); }
+  20%, 40%, 60%, 80% { transform: translateX(0.625rem); }
+}
+
+@keyframes tie-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 1.5rem;
+         margin: 1rem auto; /* Adjust margin */
+    }
+
+    .choices {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .choice-button {
+        width: 70%;
+        margin: 0.5rem 0;
+        height: auto;
+        border-radius: 1rem;
+    }
+
+    .result-box {
+        width: 95%;
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .choice-image {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .result-image {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .choice-label,
+    .result-header,
+    .score p,
+    .streak p,
+    #result,
+    .reset-button,
+    .sound-button,
+    .game-title,
+    .name-modal-title {
+        font-size: 0.9em;
+    }
+     .game-title{
+        font-size: 1.6em; /* Smaller title on mobile */
+    }
+     .image-container{
+       height: 3rem;
+
+    }
+}
+
+/* Name Input Modal Styles */
+.name-modal-title {
+     font-size: 1.2em; /* Adjust font size */
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.name-input {
+    padding: 0.75rem;
+    font-size: 1em;
+    border: 2px solid #444;
+    border-radius: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+}
+
+.start-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.start-button:hover {
+    background-color: #3e8e41;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8em;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    display: none;
+}
